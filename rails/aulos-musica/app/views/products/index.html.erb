@@ -1,0 +1,37 @@
+<h1>Product#index</h1>
+<div id="product import">
+	<%= form_tag import_products_path, multipart: true do %>
+	  <%= file_field_tag :file%>
+	  <%= submit_tag "Import"%>
+	<% end -%>
+</div>
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr>
+		<% @productHeaders.each do |header|%>
+			<th><%=header%></th>
+		<%end%>
+	<tr>
+	<% @products.each do |product|%>
+		<tr>
+			<% product.attributes.each_value do |cell|%>
+			<td> <%= cell%> </td>
+			<%end%>
+		</tr>
+	<%end%>
+</table>
+<div id="products">
+	<div class="header">
+		<span class="title">title</span>
+		<span class="description">description</span>
+	</div>
+	<%= @products.each do |product| %>
+	<div class="row">
+		<span class="title">
+			<%= product.title %>
+		</span>
+		<span class="description">
+			<%= product.description %>
+		</span>
+	</div>
+	<% end %>
+</div>

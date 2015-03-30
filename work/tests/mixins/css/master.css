@@ -1,0 +1,63 @@
+body {
+  padding: 20px;
+  margin: 0px;
+  background-color: #bb3221; }
+
+#position {
+  position: absolute;
+  top: 35px;
+  left: 255px;
+  padding: 10px;
+  border: 5px solid #902619;
+  background-color: #e36e5f;
+  width: 200px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px; }
+
+#test {
+  cursor: hand;
+  position: absolute;
+  top: 100px;
+  left: 400px;
+  width: 140px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  border: 5px solid #641b12;
+  background-color: #db4634; }
+  #test div p {
+    padding: 10px;
+    font-family: Arial, "MS Trebuchet", sans-serif;
+    font-size: 16pt; }
+
+#background {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1200px;
+  height: 900px;
+  z-index: -1; }
+  #background #selector {
+    padding: 15px;
+    background-color: #ea958b;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border: 5px solid #641b12;
+    z-index: 1;
+    position: absolute;
+    top: 35px;
+    left: 35px; }
+    #background #selector a {
+      margin-top: 2px;
+      padding-left: 5px;
+      padding-right: 5px;
+      display: block;
+      background-color: #eea9a0; }
+    #background #selector a:hover {
+      cursor: pointer;
+      background-color: #e78175;
+      border: 5px solid #641b12; }
+
+/*# sourceMappingURL=master.css.map */

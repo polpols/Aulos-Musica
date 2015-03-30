@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test mixin</title>
+    <script src="./script/main.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./css/master.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body onload="mk_menu_img();return false;">
+    <div id="background">
+      <div id="selector">
+      </div>
+      <img src="" alt="" />
+    </div>
+    <div id="position">
+    <div id="mouse_x">
+      <h1>Mouse X</h1>
+      <div class="data">
+        none
+      </div>
+    </div>
+    <div id="mouse_y">
+      <h1>Mouse Y</h1>
+      <div class="data">
+        none
+      </div>
+    </div>
+    <div id="test_x">
+      <h1>Test X</h1>
+      <div class="data">
+        none
+      </div>
+    </div>
+    <div id="test_y">
+      <h1>Test Y</h1>
+      <div class="data">
+        none
+      </div>
+    </div>
+  </div>
+    <div id="test" onmousedown='tzdragg.startMoving(event);' onmouseup='tzdragg.stopMoving();' style='top: 10px; left: 10px;'>
+
+      <h1>TEST</h1>
+      <div>
+        <p>
+          this is a test !
+        </p>
+        <p>
+          this is a test !
+        </p>
+        <p>
+          this is a test !
+        </p>
+
+      </div>
+    </div>
+  </body>
+</html>

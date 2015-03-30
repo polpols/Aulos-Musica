@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base>
+	<table name="stock">
+		<field name="ref" type="1" limited_length="33" null="true"></field>
+		<field name="num" type="1" limited_length="33" null="true"></field>
+		<field name="title" type="12" limited_length="33" null="true"></field>
+		<field name="subtitle" type="12" null="true"></field>
+		<field name="subject" type="12" limited_length="33" null="true"></field>
+	</table>
+</base>

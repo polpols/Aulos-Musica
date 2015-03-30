@@ -1,0 +1,15 @@
+<h1><%=@list.name%></h1>
+<div><%=@list.description%></div>
+<table id="products">
+	<%@list.products.each do |product|%>
+	
+		<tr>
+			<%product.attributes.each_value do |cell|%>
+			<td><a href="/products/<%=product.id%>"><%=cell%></a></td>
+			<%end%>
+		</tr>
+	
+	
+		
+	<%end%>
+</table>

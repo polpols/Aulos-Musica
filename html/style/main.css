@@ -1,0 +1,62 @@
+body {
+  background-color: #cbc7ba;
+  margin: 0;
+  padding: 0; }
+
+#page {
+  width: 900px;
+  background-color: #cbc7ba;
+  margin-left: auto;
+  margin-right: auto; }
+
+#entete {
+  background-color: #cbc7ba;
+  font: "Times New Roman", serif;
+  height: 300px; }
+
+#contact {
+  width: 400px;
+  position: relative;
+  top: -300px;
+  left: 450px;
+  text-align: center; }
+  #contact #contact-titre {
+    font-size: 48pt;
+    font-weight: bold;
+    color: #88453b; }
+
+#contact-stitre {
+  color: #88453b;
+  font-size: 18pt; }
+
+#mail {
+  margin-top: 15px; }
+
+#mail div {
+  color: #88453b; }
+
+#mail div a {
+  text-decoration: none;
+  color: black; }
+
+#vcard {
+  margin-top: 15px;
+  border-style: dotted;
+  border-color: #cbc7ba;
+  border-width: 2px; }
+
+#vcard a {
+  text-decoration: none;
+  font-size: 18pt;
+  color: #88453b; }
+
+#horaire {
+  display: block; }
+
+#horaire-titre {
+  color: black; }
+
+#carte {
+  width: 10px; }
+
+/*# sourceMappingURL=main.css.map */

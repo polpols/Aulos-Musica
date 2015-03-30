@@ -1,0 +1,12 @@
+Bastion : 122846183
+Dufour : 79658139
+Conservatoire : 15256700
+Musée Rath  : 15256715
+Grand Théâtre : 15256736
+Victoria Hall : 122365862
+Gruetli : 79211072
+
+select osm_id,way, name
+from planet_osm_polygon 
+where 
+osm_id in (122846183,122846183,15256700,15256715,15256736,122365862)
