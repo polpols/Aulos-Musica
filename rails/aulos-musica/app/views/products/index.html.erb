@@ -19,19 +19,3 @@
 		</tr>
 	<%end%>
 </table>
-<div id="products">
-	<div class="header">
-		<span class="title">title</span>
-		<span class="description">description</span>
-	</div>
-	<%= @products.each do |product| %>
-	<div class="row">
-		<span class="title">
-			<%= product.title %>
-		</span>
-		<span class="description">
-			<%= product.description %>
-		</span>
-	</div>
-	<% end %>
-</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329153552) do
+ActiveRecord::Schema.define(version: 20150330144355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,10 @@ ActiveRecord::Schema.define(version: 20150329153552) do
   create_table "lists", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.string "tags",        array: true
   end
+
+  add_index "lists", ["tags"], name: "index_lists_on_tags", using: :gin
 
   create_table "lists_products", force: :cascade do |t|
     t.integer "list_id"
@@ -41,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150329153552) do
     t.string "instrument"
     t.string "isbn"
     t.string "manufacturer"
+    t.string "type"
   end
 
 end

@@ -10,10 +10,16 @@ class ProductsController < ApplicationController
   def show
     @product=Product.find_by_id(params[:id])
   end
-  
+  def destroy
+    @product=Product.find_by_id(params[:id])
+    @product.destroy!
+  end
+  def create
+
+  end
   def import
     Product.import(params[:file])
     redirect_to root_url, notice: "Product Imported"
-    
+
   end
 end
