@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  Mercury::Engine.routes
   get 'lists/index'
 
   get 'lists/create'
