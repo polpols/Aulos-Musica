@@ -5,6 +5,18 @@
 	  <%= submit_tag "Import"%>
 	<% end -%>
 </div>
+
+<table id="products" data-source="<%= products_url(format: "json") %>">
+	<thead>
+		<% @productHeaders.each do |header|%>
+			<th><%=header%></th>
+		<%end%>
+	</thead>
+	<tbody>
+
+	</tbody>
+</table>
+
 <table border="0" cellspacing="5" cellpadding="5">
 	<tr>
 		<% @productHeaders.each do |header|%>
