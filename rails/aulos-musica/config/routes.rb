@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  Mercury::Engine.routes
+#  Mercury::Engine.routes via: [:get, :post]
   get 'lists/index'
 
   get 'lists/create'
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :products do
     collection { post :import }
-    
+
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

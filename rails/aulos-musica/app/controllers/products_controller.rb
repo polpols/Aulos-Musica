@@ -4,8 +4,8 @@ class ProductsController < ApplicationController
     @products= Product.all
     respond_to do |format|
       format.html
-      format.json {render :json ProductsDatatable.new(view_context)}
-      format.csv{ send_data @products.to_csv}
+      format.json {render json: ProductsDatatable.new(view_context)}
+      format.csv {send_data @products.to_csv}
     end
   end
   def show
