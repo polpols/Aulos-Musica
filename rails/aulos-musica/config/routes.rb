@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'lists/index'
+  # get 'lists/index' => 'lists#index'
+  #
+  # get 'lists/create'
+  # get 'lists/show/:id' => 'lists#show'
+  #
+  # get 'lists/destroy'
 
-  get 'lists/create'
-  get 'lists/show/:id' => 'lists#show'
-
-  get 'lists/destroy'
-
-  resources :animals
+  resources :lists
 
   resources :products do
     collection { post :import }

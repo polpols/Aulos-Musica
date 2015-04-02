@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="page">
+  <div id="entete">
+    <a href="/">Root</a>
+    <a href="/products">Produits</a>
+    <a href="/lists">Listes</a>
+  </div>
+  <div id="corps">
+    <%= yield %>
+  </div>
+  <div id="pied">
 
-<%= yield %>
+  </div>
+</div>
 
 </body>
 </html>
