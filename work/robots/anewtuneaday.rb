@@ -41,7 +41,7 @@ doc.css(".listItem").each do |t|
  :isbn=>
  :description=>
  :photo 
- )
+ ).save!
 end
   
 
