@@ -19,13 +19,22 @@ class ListsController < ApplicationController
     respond_to do |format|
       if @list.save
         format.html{redirect_to @list,notice:"List was created"}
-        format.json{}
+        format.json{render :show, status: :created, location: @list}
       else
+        format.html { render :new }
+        format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def update
+    respond_to do |format|
+      if @list.update(list_params)
+
+      end
+      format.html{ redirect_to @list, notice: "List successefully updated"}
+      format.json { render :show, status: :ok, location: @list }
+    end
 
   end
 
