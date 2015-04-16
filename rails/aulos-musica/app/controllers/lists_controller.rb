@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show,:edit,:update,:destroy]
+
   def index
     @lists = List.all
   end
@@ -30,10 +31,13 @@ class ListsController < ApplicationController
   def update
     respond_to do |format|
       if @list.update(list_params)
-
+        format.html{ redirect_to @list, notice: "List successefully updated"}
+        format.json { render :show, status: :ok, location: @list }
+      else
+        format.html { render :edit }
+        format.json { render json: @list.errors, status: :unprocessable_entity }
       end
-      format.html{ redirect_to @list, notice: "List successefully updated"}
-      format.json { render :show, status: :ok, location: @list }
+
     end
 
   end
