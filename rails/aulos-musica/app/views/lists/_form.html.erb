@@ -1,17 +1,17 @@
 <%= form_for (@list) do |f| %>
-<div class="name">
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</div>
-<div class="description">
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-</div>
-<div class="product_ids">
-  <%= f.label :product_ids %>
-  <%= f.text_field :product_ids %>
-</div>
-<div class="submit">
-  <%= f.submit "Create" %>
-</div>
+  <div class="name">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="description">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="product_ids">
+    <%= f.label :product_token %>
+    <%= f.text_field :product_token %>
+  </div>
+  <div class="submit">
+    <%= f.submit "Create" %>
+  </div>
 <% end %>
