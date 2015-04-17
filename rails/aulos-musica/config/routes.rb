@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :lists do
-    collection { get :remove_product_id}
-  end
+  resources :lists
 
   resources :products do
     collection { post :import }
@@ -61,4 +59,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  get 'lists/:list_id/remove_product_id/:product_id' => 'lists#remove_product_id'
 end

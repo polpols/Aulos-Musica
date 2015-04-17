@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show,:edit,:update,:destroy,:remove_product_id]
+  before_action :set_list, only: [:show,:edit,:update,:destroy]
 
   def index
     @lists = List.includes(:products)
@@ -32,7 +32,8 @@ class ListsController < ApplicationController
     end
   end
   def remove_product_id
-    @list.remove_product_id(params[:id])
+    @list=List.find(params[:list_id])
+    @list.remove_product_id(params[:product_id])
     respond_to do |format|
       format.html { redirect_to @list }
       format.json
