@@ -1,0 +1,2 @@
+class Partition < Product
+end
