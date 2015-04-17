@@ -1,0 +1,2 @@
+class Livre < Product
+end

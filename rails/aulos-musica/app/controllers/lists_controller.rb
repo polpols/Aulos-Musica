@@ -1,8 +1,12 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show,:edit,:update,:destroy]
+  before_action :set_list, only: [:show,:edit,:update,:destroy,:remove_product_id]
 
   def index
     @lists = List.includes(:products)
+    respond_to do |format|
+      format.html
+      format.json {send_data @list.to_json}
+    end
   end
 
   def show
@@ -19,7 +23,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     respond_to do |format|
       if @list.save
-        format.html { redirect_to @list,notice:"List was created"}
+        format.html { redirect_to @list, notice:"List was created"}
         format.json { render :show, status: :created, location: @list}
       else
         format.html { render :new }
@@ -27,7 +31,13 @@ class ListsController < ApplicationController
       end
     end
   end
-
+  def remove_product_id
+    @list.remove_product_id(params[:id])
+    respond_to do |format|
+      format.html { redirect_to @list }
+      format.json
+    end
+  end
   def update
     respond_to do |format|
       if @list.update(list_params)
