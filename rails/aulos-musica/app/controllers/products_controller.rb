@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show,:edit,:update,:destroy]
+
   def index
     @productHeaders=Product.attribute_names
     @products= Product.all
@@ -8,19 +10,50 @@ class ProductsController < ApplicationController
       format.csv {send_data @products.to_csv}
     end
   end
-  def show
-    @product=Product.find_by_id(params[:id])
-  end
-  def destroy
-    @product=Product.find_by_id(params[:id])
-    @product.destroy!
-  end
-  def create
 
+  def show
   end
+
+  def destroy
+  end
+
+  def create
+    product = Product.new(product_params)
+    respond_to do |format|
+      if @product.save
+        format.html { redirect_to @product, notice:"Product was created"}
+        format.json { render :show, status: :created, location: @product}
+      else
+        format.html { render :new }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @product.update(product_params)
+        format.html{ redirect_to @product, notice: "Product successefully updated"}
+        format.json { render :show, status: :ok, location: @product }
+      else
+        format.html { render :edit }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def import
     Product.import(params[:file])
-    redirect_to root_url, notice: "Product Imported"
-
+    redirect_to product_url, notice: "Product Imported"
   end
+
+  private
+
+  def set_product
+      @product = Product.find(params[:id])
+    end
+
+  def product_params
+      params.require(:product).permit(:title,:subtitle,:author,:composer,:description,:info,:instrument,:isbn,:manufacturer,:type)
+    end
 end

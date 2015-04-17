@@ -1,15 +1,25 @@
 <h1>Lists#index</h1>
-<table border="1" cellspacing="5" cellpadding="5">
-	<tr>
-		<% @lists.attribute_names.each do |list| %>
-			<th><%=list%></th>
-		<%end%>
-	</tr>
-	<% @lists.each do |list| %>
+
+<%= link_to "New List", new_list_path() %>
+<table cellspacing="5" cellpadding="5">
+	<thead>
 		<tr>
-			<%list.attributes.each_value do |v|%>
-				<td><%=v%></td>
+			<% @lists.attribute_names.each do |list| %>
+				<th><%=list%></th>
 			<%end%>
 		</tr>
-	<%end%>
+	</thead>
+	<tbody>
+
+		<% @lists.each do |list| %>
+			<tr>
+				<%list.attributes.each_value do |v|%>
+					<td><%=v%></td>
+				<%end%>
+				<td>
+					<%= link_to	"liste", list_path(list) %>
+				</td>
+			</tr>
+		<%end%>
+	</tbody>
 </table>

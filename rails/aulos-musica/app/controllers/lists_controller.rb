@@ -2,7 +2,7 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show,:edit,:update,:destroy]
 
   def index
-    @lists = List.all
+    @lists = List.includes(:products)
   end
 
   def show
@@ -19,8 +19,8 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     respond_to do |format|
       if @list.save
-        format.html{redirect_to @list,notice:"List was created"}
-        format.json{render :show, status: :created, location: @list}
+        format.html { redirect_to @list,notice:"List was created"}
+        format.json { render :show, status: :created, location: @list}
       else
         format.html { render :new }
         format.json { render json: @list.errors, status: :unprocessable_entity }
@@ -37,9 +37,7 @@ class ListsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
-
     end
-
   end
 
   def destroy
@@ -51,6 +49,6 @@ class ListsController < ApplicationController
     end
 
   def list_params
-      params.require(:list).permit(:name, :description)
+      params.require(:list).permit(:name, :description, :product_ids)
     end
 end
