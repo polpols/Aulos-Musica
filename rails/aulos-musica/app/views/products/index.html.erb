@@ -6,7 +6,7 @@
 	<% end -%>
 </div>
 
-<table id="products" data-source="<%= products_url(format: "json") %>">
+<table>
 	<thead>
 		<% @productHeaders.each do |header|%>
 			<th><%=header%></th>
@@ -15,8 +15,10 @@
 	<tbody>
 		<% @products.each do |product|%>
 			<tr>
-				<% product.attributes.each_value do |cell|%>
-				<td> <%= cell%> </td>
+				<% product.attributes.each do |k,v|%>
+					<td class='rest-in-place' data-url='/products/<%=product.id%>' data-object='product' data-attribute='<%=k%>'>
+						<%= v %>
+					</td>
 				<%end%>
 			</tr>
 		<%end%>

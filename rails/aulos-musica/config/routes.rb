@@ -60,4 +60,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   get 'lists/:list_id/remove_product_id/:product_id' => 'lists#remove_product_id'
+#  put 'lists/:id' => 'lists#update'
 end

@@ -1,8 +1,8 @@
 <p>
 	<%= notice %>
 </p>
-<h1><%=@list.name%></h1>
-<div><%=@list.description%></div>
+<h1 class='rest-in-place' data-url="/lists/<%=@list.id%>" data-object='list' data-placeholder='Enter Name' data-attribute='name'><%=@list.name%></h1>
+<div class='rest-in-place' data-url="/lists/<%=@list.id%>" data-object='list' data-placeholder='Enter Descr' data-attribute='description'><%=@list.description%></div>
 <%= link_to "Edit List", edit_list_path(@list) %>
 <% if @list.products.count > 0%>
 	<table id="products">

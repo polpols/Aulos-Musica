@@ -10,6 +10,10 @@ class ListsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.json {render :json => @list}
+    end
   end
 
   def edit
@@ -24,7 +28,7 @@ class ListsController < ApplicationController
     respond_to do |format|
       if @list.save
         format.html { redirect_to @list, notice:"List was created"}
-        format.json { render :show, status: :created, location: @list}
+        format.json { render :json => @list}
       else
         format.html { render :new }
         format.json { render json: @list.errors, status: :unprocessable_entity }
@@ -43,7 +47,7 @@ class ListsController < ApplicationController
     respond_to do |format|
       if @list.update(list_params)
         format.html{ redirect_to @list, notice: "List successefully updated"}
-        format.json { render :show, status: :ok, location: @list }
+        format.json { render :json => @list }
       else
         format.html { render :edit }
         format.json { render json: @list.errors, status: :unprocessable_entity }

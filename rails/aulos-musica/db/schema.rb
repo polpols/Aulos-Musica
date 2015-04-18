@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330144355) do
+ActiveRecord::Schema.define(version: 20150418112804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "animals", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instrumentation", id: false, force: :cascade do |t|
+    t.integer "product_id",    null: false
+    t.integer "instrument_id", null: false
+  end
+
+  create_table "instruments", force: :cascade do |t|
+    t.string   "name"
+    t.string   "abbr"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "instruments", ["abbr"], name: "index_instruments_on_abbr", using: :btree
+  add_index "instruments", ["name"], name: "index_instruments_on_name", using: :btree
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
