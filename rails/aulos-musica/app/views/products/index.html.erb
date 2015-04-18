@@ -8,19 +8,19 @@
 
 <table>
 	<thead>
-		<% @productHeaders.each do |header|%>
+		<%- @productHeaders.each do |header|%>
 			<th><%=header%></th>
 		<%end%>
 	</thead>
 	<tbody>
 		<% @products.each do |product|%>
 			<tr>
-				<% product.attributes.each do |k,v|%>
+				<%- product.attributes.each do |k,v|%>
 					<td class='rest-in-place' data-url='/products/<%=product.id%>' data-object='product' data-attribute='<%=k%>'>
 						<%= v %>
 					</td>
-				<%end%>
+				<%end-%>
 			</tr>
-		<%end%>
+		<%end-%>
 	</tbody>
 </table>
